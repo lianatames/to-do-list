@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <div class="heading">
+        <% if (locals.date) { %>
+            <h1><%= date %></h1>
+        <% } else { %>
+            <h1>Todays List</h1>
+        <% } %>
+    </div>
+
+    <form class="inputForm" action="/submit" method="POST">
+        <input class="inputText" type="text" name="task" placeholder="New task" autocomplete="off" required>
+        <button class="addButton" type="submit" name="list" value="today">+</button>
+    </form>
+
+    <ul>
+        <% if (locals.toDoList) { %>
+            <% for (var i=0; i < toDoList.length; i++) { %>
+                <li class="listItem">
+                    <input class="complete" type="checkbox" label="completed">
+                    <p class="item">
+                        <%= toDoList[i] %>
+                    </p>
+                    <form action="/delete" method="POST">
+                        <button class="deleteButton" type="submit" name="delete" value="<%= i %>">x</button>
+                    </form>
+                </li>
+            <% } %>
+        <% } %>
+    </ul>
+</div>
+
+<%- include("partials/footer.ejs") %>

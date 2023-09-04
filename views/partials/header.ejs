@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="headContainer">
+        <header>
+            <form action="/" method="get">
+                <% if (locals.active) { %>
+                    <% if (locals.active==="today" ) { %>
+                        <button class="navButton activePage">Today</button>
+                    <% } else { %>
+                        <button class="navButton">Today</button>
+                    <% } %>
+                <% } else { %>
+                    <button class="navButton">Today</button>
+                <% } %>
+            </form>
+            <form action="/work" method="get">
+                <% if (locals.active) { %>
+                    <% if (locals.active==="work" ) { %>
+                        <button class="navButton activePage">Work</button>
+                    <% } else { %>
+                        <button class="navButton">Work</button>
+                    <% } %>
+                <% } else { %>
+                    <button class="navButton">Work</button>
+                <% } %>
+            </form>
+        </header>
+    </div>
+
+    <main>
